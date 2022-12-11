@@ -14,7 +14,12 @@ fn main() {
     //         Vec::from([0, 2])
     //     ])
     // };
-    let x: Graph = Graph::generate(5);
-    println!("{:?}", x);
-    find_cycle(x);
+    let x: Graph = Graph::generate(10);
+    
+    let result: Option<Vec<usize>> = find_cycle(x);
+    if result == None {
+        println!("No hamiltonian cycle.");
+    } else {
+        println!("Hamiltonian cycle detected: {:?}", result.unwrap());
+    }
 }
