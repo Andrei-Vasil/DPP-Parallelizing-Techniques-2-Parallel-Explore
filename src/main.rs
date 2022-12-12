@@ -2,6 +2,7 @@ mod graph;
 mod alg;
 use graph::Graph;
 use alg::find_cycle;
+use std::time::Instant;
 
 fn main() {
     // let x: Graph = Graph {
@@ -14,9 +15,17 @@ fn main() {
     //         Vec::from([0, 2])
     //     ])
     // };
+    print!("Generating graph... ");
+    let start = Instant::now();
     let x: Graph = Graph::generate(10);
+    let duration = start.elapsed();
+    println!("Done: {:?}", duration);
     
+    print!("Searching for hamiltonian cycle... ");
+    let start = Instant::now();
     let result: Option<Vec<usize>> = find_cycle(x);
+    let duration = start.elapsed();
+    println!("Done: {:?}", duration);
     if result == None {
         println!("No hamiltonian cycle.");
     } else {
