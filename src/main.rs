@@ -5,6 +5,8 @@ use alg::find_cycle;
 use std::time::Instant;
 
 fn main() {
+    print!("Generating graph... ");
+    let start = Instant::now();
     // let x: Graph = Graph {
     //     no_of_nodes: 5,
     //     edges: Vec::from([
@@ -15,9 +17,7 @@ fn main() {
     //         Vec::from([0, 2])
     //     ])
     // };
-    print!("Generating graph... ");
-    let start = Instant::now();
-    let x: Graph = Graph::generate(10);
+    let x: Graph = Graph::generate(12);
     let duration = start.elapsed();
     println!("Done: {:?}", duration);
     
